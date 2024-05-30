@@ -10,9 +10,13 @@ export const WelcomeMsg = () => {
       <h2 className="text-2xl lg:text-4xl font-bold text-white">
         Welcome to your Dashboard{isLoaded ? ", " : " "} {user?.firstName} !
       </h2>
-      <p className=" text-sm lg:text-base text-[#89b6fd]">
-        This is your financial report.
-      </p>
+      {isLoaded ? (
+        <p className=" text-sm lg:text-base text-[#89b6fd]">
+          This is your financial report.
+        </p>
+      ) : (
+        " "
+      )}
     </div>
   );
 };
