@@ -73,7 +73,7 @@ export const AccountForm = ({
           )}
         />
         <Button className="w-full" disabled={disabled}>
-          {id ? "Save Changes" : "Submit"}
+          {id ? "Save Changes" : "Create Account"}
         </Button>
         {!!id && (
           <Button
@@ -84,7 +84,7 @@ export const AccountForm = ({
             className="w-full"
           >
             <Trash className="size-4 mr-2" />
-            Delete
+            Delete Account
           </Button>
         )}
       </form>

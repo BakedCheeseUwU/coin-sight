@@ -4,7 +4,7 @@ import { Loader2 } from "lucide-react";
 import { useDeleteAccount } from "@/features/accounts/api/use-delete-account";
 import { useEditAccount } from "@/features/accounts/api/use-edit-account";
 import { useGetAccount } from "@/features/accounts/api/use-get-account";
-import { useOpenAccount } from "@/features/accounts/hooks/use-open-accout";
+import { useOpenAccount } from "@/features/accounts/hooks/use-open-account";
 import { AccountForm } from "@/features/accounts/components/account-form";
 
 import { useConfirm } from "@/hooks/use-confirm";
