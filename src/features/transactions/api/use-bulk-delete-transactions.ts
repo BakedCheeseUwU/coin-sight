@@ -31,4 +31,3 @@ export const useBulkDeleteTransactions = () => {
   });
   return mutation;
 };
-
