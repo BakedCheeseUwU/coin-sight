@@ -48,7 +48,10 @@ const TransactionsPage = () => {
           <CardTitle className="text-xl line-clamp-1">
             Transactions History
           </CardTitle>
-          <Button onClick={onOpen}>
+          <Button
+            className="bg-purple-700 hover:bg-purple-700/90"
+            onClick={onOpen}
+          >
             <Plus />
             Add new
           </Button>

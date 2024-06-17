@@ -57,6 +57,7 @@ export const Actions = ({ id }: Props) => {
           <DropdownMenuItem
             disabled={deleteMutation.isPending}
             onClick={handleDelete}
+            className="text-rose-500 focus:bg-rose-500"
           >
             <Trash className="size-4 mr-2" />
             Delete
