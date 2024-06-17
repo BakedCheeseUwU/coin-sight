@@ -2,18 +2,13 @@
 
 import { useState } from "react";
 import { usePathname, useRouter } from "next/navigation";
-import { NavButton } from "@/components/nav-button";
 import { useMedia } from "react-use";
-import {
-  Sheet,
-  SheetContent,
-  SheetDescription,
-  SheetHeader,
-  SheetTitle,
-  SheetTrigger,
-} from "@/components/ui/sheet";
-import { Button } from "./ui/button";
 import { Menu } from "lucide-react";
+
+import { Sheet, SheetContent, SheetTrigger } from "@/components/ui/sheet";
+import { NavButton } from "@/components/nav-button";
+
+import { Button } from "./ui/button";
 
 const routes = [
   {
@@ -31,10 +26,6 @@ const routes = [
   {
     href: "/categories",
     label: "Categories",
-  },
-  {
-    href: "/setting",
-    label: "Settings",
   },
 ];
 
