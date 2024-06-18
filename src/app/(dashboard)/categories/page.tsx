@@ -47,7 +47,10 @@ const CategoriesPage = () => {
           <CardTitle className="text-xl line-clamp-1">
             Categories Page
           </CardTitle>
-          <Button onClick={onOpen}>
+          <Button
+            className="bg-purple-700 hover:bg-purple-700/90"
+            onClick={onOpen}
+          >
             <Plus />
             Add new
           </Button>

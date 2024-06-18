@@ -14,7 +14,7 @@ import {
 
 export const useConfirm = (
   title: string,
-  message: string
+  message: string,
 ): [() => JSX.Element, () => Promise<unknown>] => {
   const [promise, setPromise] = useState<{
     resolve: (value: boolean) => void;
@@ -50,7 +50,12 @@ export const useConfirm = (
           <Button variant="outline" onClick={handleCancel}>
             Cancel
           </Button>
-          <Button onClick={handleConfirm}>Confirm</Button>
+          <Button
+            className="bg-purple-700 hover:bg-purple-700/90"
+            onClick={handleConfirm}
+          >
+            Confirm
+          </Button>
         </DialogFooter>
       </DialogContent>
     </Dialog>

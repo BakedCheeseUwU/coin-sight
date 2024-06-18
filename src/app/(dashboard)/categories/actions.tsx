@@ -23,7 +23,7 @@ export const Actions = ({ id }: Props) => {
   const deleteMutation = useDeleteCategory(id);
   const [ConfirmDialog, confirm] = useConfirm(
     "Are you sure?",
-    "You are about to delete this category. This action cannot be undone."
+    "You are about to delete this category. This action cannot be undone.",
   );
 
   const handleDelete = async () => {
@@ -56,6 +56,7 @@ export const Actions = ({ id }: Props) => {
           <DropdownMenuItem
             disabled={deleteMutation.isPending}
             onClick={handleDelete}
+            className="text-rose-500 focus:bg-rose-500"
           >
             <Trash className="size-4 mr-2" />
             Delete

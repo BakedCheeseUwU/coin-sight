@@ -191,7 +191,10 @@ export const TransactionForm = ({
           )}
         />
 
-        <Button className="w-full" disabled={disabled}>
+        <Button
+          className="w-full hover:bg-purple-700/90 bg-purple-700"
+          disabled={disabled}
+        >
           {id ? "Save Changes" : "Create Transaction"}
         </Button>
         {!!id && (
@@ -200,7 +203,7 @@ export const TransactionForm = ({
             disabled={disabled}
             onClick={handleDelete}
             variant="outline"
-            className="w-full"
+            className="w-full text-rose-500 hover:bg-rose-500"
           >
             <Trash className="size-4 mr-2" />
             Delete Transaction

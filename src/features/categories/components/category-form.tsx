@@ -72,8 +72,11 @@ export const CategoryForm = ({
             </FormItem>
           )}
         />
-        <Button className="w-full" disabled={disabled}>
-          {id ? "Save Changes" : "Create Category"}
+        <Button
+          className="w-full hover:bg-purple-700/90 bg-purple-700"
+          disabled={disabled}
+        >
+          {id ? "Save Changes" : "Create Transaction"}
         </Button>
         {!!id && (
           <Button
@@ -81,10 +84,10 @@ export const CategoryForm = ({
             disabled={disabled}
             onClick={handleDelete}
             variant="outline"
-            className="w-full"
+            className="w-full text-rose-500 hover:bg-rose-500"
           >
             <Trash className="size-4 mr-2" />
-            Delete Category
+            Delete Transaction
           </Button>
         )}
       </form>
