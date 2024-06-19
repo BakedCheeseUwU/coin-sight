@@ -15,6 +15,8 @@ import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 import { columns } from "./columns";
 import { useState } from "react";
 import { UploadButton } from "./upload-button";
+import { ImportCard } from "./import-card";
+
 enum VARIANTS {
   LIST = "LIST",
   IMPORT = "IMPORT",
@@ -28,6 +30,7 @@ const INITIAL_IMPORT_RESULTS = {
 
 const TransactionsPage = () => {
   const [variants, setVariant] = useState<VARIANTS>(VARIANTS.LIST);
+  const [importResults, setImportResults] = useState(INITIAL_IMPORT_RESULTS);
   const { onOpen } = useNewTransaction();
   const transactionsQuery = useGetTransactions();
   const deleteTransactions = useBulkDeleteTransactions();
@@ -36,6 +39,12 @@ const TransactionsPage = () => {
     setImportResults(result);
     setVariant(VARIANTS.IMPORT);
   };
+
+  const onCancelImport = () => {
+    setImportResults(INITIAL_IMPORT_RESULTS);
+    setVariant(VARIANTS.LIST);
+  };
+
   const isDisabled =
     transactionsQuery.isLoading || deleteTransactions.isPending;
 
@@ -58,6 +67,18 @@ const TransactionsPage = () => {
     );
   }
 
+  if (variants === VARIANTS.IMPORT) {
+    return (
+      <>
+        <ImportCard
+          data={importResults.data}
+          onCancel={onCancelImport}
+          onSubmit={() => {}}
+        />
+      </>
+    );
+  }
+
   return (
     <div className="max-w-screen-2xl mx-auto -mt-24 pb-10">
       <Card className="border-none drop-shadow-sm">
@@ -65,13 +86,6 @@ const TransactionsPage = () => {
           <CardTitle className="text-xl line-clamp-1">
             Transactions History
           </CardTitle>
-          <Button
-            className="bg-purple-700 hover:bg-purple-700/90"
-            onClick={onOpen}
-          >
-            <Plus />
-            Add new
-          </Button>
           <div className="flex items-center gap-x-2">
             <Button
               size="sm"
