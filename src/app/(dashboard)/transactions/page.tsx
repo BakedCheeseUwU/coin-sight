@@ -13,12 +13,29 @@ import { Skeleton } from "@/components/ui/skeleton";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
 import { columns } from "./columns";
+import { useState } from "react";
+import { UploadButton } from "./upload-button";
+enum VARIANTS {
+  LIST = "LIST",
+  IMPORT = "IMPORT",
+}
+
+const INITIAL_IMPORT_RESULTS = {
+  data: [],
+  errors: [],
+  meta: {},
+};
 
 const TransactionsPage = () => {
+  const [variants, setVariant] = useState<VARIANTS>(VARIANTS.LIST);
   const { onOpen } = useNewTransaction();
   const transactionsQuery = useGetTransactions();
   const deleteTransactions = useBulkDeleteTransactions();
 
+  const onUpload = (result: typeof INITIAL_IMPORT_RESULTS) => {
+    setImportResults(result);
+    setVariant(VARIANTS.IMPORT);
+  };
   const isDisabled =
     transactionsQuery.isLoading || deleteTransactions.isPending;
 
@@ -55,6 +72,17 @@ const TransactionsPage = () => {
             <Plus />
             Add new
           </Button>
+          <div className="flex items-center gap-x-2">
+            <Button
+              size="sm"
+              className=" w-full bg-purple-700 hover:bg-purple-700/90"
+              onClick={onOpen}
+            >
+              <Plus />
+              Add new
+            </Button>
+            <UploadButton onUpload={onUpload} />
+          </div>
         </CardHeader>
         <CardContent>
           <DataTable
