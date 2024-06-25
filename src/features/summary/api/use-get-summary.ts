@@ -3,7 +3,7 @@ import { client } from "@/lib/hono";
 import { useSearchParams } from "next/navigation";
 import { convertAmountFromMiliUnits } from "@/lib/utils";
 
-export const useGetTransactions = () => {
+export const useGetSummary = () => {
   const params = useSearchParams();
   const from = params.get("from") || "";
   const to = params.get("to") || "";
