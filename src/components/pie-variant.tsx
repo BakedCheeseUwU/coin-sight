@@ -6,7 +6,7 @@ import {
   Tooltip,
   ResponsiveContainer,
 } from "recharts";
-
+import { CategoryTooltip } from "@/components/category-tooltip";
 import { formatPercentage } from "@/lib/utils";
 
 const COLORS = ["#8839ef", "#f43f5e", "#1e66f5", "#fe640b"];
@@ -53,6 +53,7 @@ export const PieVariant = ({ data }: Props) => {
             );
           }}
         />
+        <Tooltip content={<CategoryTooltip />} />
         <Pie
           dataKey="value"
           data={data}
