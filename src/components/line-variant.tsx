@@ -33,12 +33,16 @@ export const LineVariant = ({ data }: Props) => {
         />
         <Tooltip content={<CustomTooltip />} />
         <Line
+          dot={false}
+          type="monotone"
           dataKey="income"
           stroke="#8839ef"
           strokeWidth={2}
           className="drop-shadow-sm"
         />
         <Line
+          dot={false}
+          type="monotone"
           dataKey="expenses"
           stroke="#f43f5e"
           strokeWidth={2}
