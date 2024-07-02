@@ -76,7 +76,7 @@ export const AccountForm = ({
           className="w-full hover:bg-purple-700/90 bg-purple-700"
           disabled={disabled}
         >
-          {id ? "Save Changes" : "Create Transaction"}
+          {id ? "Save Changes" : "Create Account"}
         </Button>
         {!!id && (
           <Button
@@ -87,7 +87,7 @@ export const AccountForm = ({
             className="w-full text-rose-500 hover:bg-rose-500"
           >
             <Trash className="size-4 mr-2" />
-            Delete Transaction
+            Delete Account
           </Button>
         )}
       </form>
