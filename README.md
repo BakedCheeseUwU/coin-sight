@@ -1,6 +1,26 @@
-# Track. Manage. Visualize Your Finances.First, run the development server:
+# Track. Manage. Visualize Your Finances.
 
-## Getting Started
+![Coin Sight](.github/images/coin-sight-dashboard.png)
+
+# Key Features:
+- 📊 Interactive financial dashboard
+- 🔁 Changeable chart types
+- 🗓 Account and date filters
+- 💹 Detailed transactions table
+- 🔄 CSV transaction imports
+- ➕ Form to add transactions
+- 🧩 Customizable select components
+- 💵 Income and expense toggle
+- 🔥 API via Hono.js
+- 🪝 State management via Tanstack React Query
+- 🔐 Authentication via Clerk (Core 2)
+- 🗑  Bulk delete and search in transactions
+- 🌐 Built with Next.js 14
+- 🎨 Styled with TailwindCSS and Shadcn UI
+- 💾 PostgreSQL & Drizzle ORM
+
+
+##  Setting up the project locally
 
 1. Make sure **Git** and **NodeJS** is installed.
 2. Clone this repository to your local computer.
