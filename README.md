@@ -1,36 +1,66 @@
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+# Track. Manage. Visualize Your Finances.First, run the development server:
 
 ## Getting Started
 
-First, run the development server:
+1. Make sure **Git** and **NodeJS** is installed.
+2. Clone this repository to your local computer.
+3. Create `.env.local` file in **root** directory.
 
-```bash
-npm run dev
-# or
-yarn dev
-# or
-pnpm dev
-# or
-bun dev
+Sample `.env.local` file:
+
+```env
+# .env.local
+
+# clerk auth keys
+NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY=
+CLERK_PUBLISHABLE_KEY=
+CLERK_SECRET_KEY=
+
+# clerk redirect url
+NEXT_PUBLIC_CLERK_SIGN_IN_URL=/sign-in
+NEXT_PUBLIC_CLERK_SIGN_UP_URL=/sign-up
+
+# db url
+DATABASE_URL=
+
+NEXT_PUBLIC_APP_URL=http://localhost:3000
+
 ```
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+4. Obtain Clerk Authentication Keys
 
-You can start editing the page by modifying `app/page.tsx`. The page auto-updates as you edit the file.
+   1. **Source**: Clerk Dashboard or Settings Page
+   2. **Procedure**:
 
-This project uses [`next/font`](https://nextjs.org/docs/basic-features/font-optimization) to automatically optimize and load Inter, a custom Google Font.
+      - Log in to your Clerk account.
+      - Navigate to the dashboard or settings page.
+      - Look for the section related to authentication keys.
+      - Copy the `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` and `CLERK_SECRET_KEY` provided in that section.
 
-## Learn More
+5. Retrieve Supabase Database URI
 
-To learn more about Next.js, take a look at the following resources:
+   1. **Source**: Database Provider (e.g. Supabase)
+   2. **Procedure**:
+      - Access your database provider's platform or configuration.
+      - Locate the database connection details.
+      - Copy the Database connection string and replace **[YOUR-PASSWORD]** with your database password
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+6. Install Project Dependencies using `npm install --legacy-peer-deps` or `yarn install --legacy-peer-deps`.
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
+7. Migrate database:
 
-## Deploy on Vercel
+In terminal, run `npm run db:generate` to generate database client and `npm run db:migrate` to make sure that your database is up-to-date along with schema.
 
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
+8. Run the Seed Script:
 
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+In the same terminal, run the following command to execute the seed script:
+
+`npm run db:seed`
+
+This command uses `npm` to execute the Typescript file (`scripts/seed.ts`) and writes transaction data in database.
+
+9. Verify Data in Database:
+
+Once the script completes, check your database to ensure that the transaction data has been successfully seeded.
+
+10. Now app is fully configured 👍 and you can start using this app using either one of `npm run dev` or `yarn dev`.
