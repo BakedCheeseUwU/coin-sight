@@ -14,7 +14,14 @@ export const accountsRelations = relations(accounts, ({ many }) => ({
   transactions: many(transactions),
 }));
 
-export const insertAccountSchema = createInsertSchema(accounts);
+export const insertAccountSchema = createInsertSchema(accounts, {
+  name: ({ name }) =>
+    name.trim().min(1, {
+      message: "Account name is required",
+    }),
+}).pick({
+  name: true,
+});
 
 export const categories = pgTable("categories", {
   id: text("id").primaryKey(),
@@ -27,7 +34,12 @@ export const categoriesRelations = relations(categories, ({ many }) => ({
   transactions: many(transactions),
 }));
 
-export const insertCategorySchema = createInsertSchema(categories);
+export const insertCategorySchema = createInsertSchema(categories, {
+  name: ({ name }) =>
+    name.trim().min(1, { message: "Category name is required" }),
+}).pick({
+  name: true,
+});
 
 export const transactions = pgTable("transactions", {
   id: text("id").primaryKey(),

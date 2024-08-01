@@ -62,12 +62,7 @@ const app = new Hono()
   .post(
     "/",
     clerkMiddleware(),
-    zValidator(
-      "json",
-      insertAccountSchema.pick({
-        name: true,
-      }),
-    ),
+    zValidator("json", insertAccountSchema),
     async (c) => {
       const auth = getAuth(c);
       const values = c.req.valid("json");
@@ -129,12 +124,7 @@ const app = new Hono()
         id: z.string().optional(),
       }),
     ),
-    zValidator(
-      "json",
-      insertAccountSchema.pick({
-        name: true,
-      }),
-    ),
+    zValidator("json", insertAccountSchema),
     async (c) => {
       const auth = getAuth(c);
       const { id } = c.req.valid("param");

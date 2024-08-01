@@ -16,9 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Trash } from "lucide-react";
 
-const formSchema = insertCategorySchema.pick({
-  name: true,
-});
+const formSchema = insertCategorySchema;
 
 type FormValues = z.input<typeof formSchema>;
 
