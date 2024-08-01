@@ -16,10 +16,7 @@ import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
 import { Trash } from "lucide-react";
 
-const formSchema = insertAccountSchema.pick({
-  name: true,
-});
-
+const formSchema = insertAccountSchema;
 type FormValues = z.input<typeof formSchema>;
 
 type Props = {
