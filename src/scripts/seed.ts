@@ -10,7 +10,7 @@ const connectionString = process.env.DATABASE_URL!;
 export const client = postgres(connectionString, { prepare: false });
 export const db = drizzle(client);
 
-const SEED_USER_ID = "user_2gTE42BbccfCdItSbOoCqWeK5xS";
+const SEED_USER_ID = "user_2ihYmDdso91bWbwFQHuzMMRS0S8";
 const SEED_CATEGORIES = [
   {
     id: "category_1",
