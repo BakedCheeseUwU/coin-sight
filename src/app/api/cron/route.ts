@@ -4,7 +4,8 @@ import { handle } from "hono/vercel";
 import { db } from "@/db/drizzle";
 import { accounts } from "@/db/schema";
 
-export const runtime = "edge";
+// causes a build error 
+// export const runtime = "edge";
 
 const app = new Hono().basePath("/api");
 
